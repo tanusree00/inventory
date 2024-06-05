@@ -2,6 +2,8 @@ import 'dotenv/config';
 import express, { urlencoded } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import { product } from './routes/product.router';
+import { getProducts } from './controllers/product.controler';
 
 const app = express();
 
@@ -11,6 +13,8 @@ app.use(urlencoded({extended:true}));
 app.get('/',(req,res)=>{
     res.status(200).send('Node js is running...');
 });
+
+app.use("/api",product);
 
 const connection_string:any=process.env.CNN_STR
 
