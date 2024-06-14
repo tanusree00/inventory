@@ -3,7 +3,7 @@ import express, { urlencoded } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { product } from './routes/product.router';
-import { getProducts } from './controllers/product.controler';
+import release from './routes/release.router';
 
 const app = express();
 
@@ -15,6 +15,7 @@ app.get('/',(req,res)=>{
 });
 
 app.use("/api",product);
+app.use('/api',release);
 
 const connection_string:any=process.env.CNN_STR
 
